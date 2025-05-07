@@ -1,0 +1,19 @@
+# VS Code
+.vscode/
+
+# CMake
+build/
+CMakeUserPresets.json
+
+# VCPkg
+vcpkg_installed/
+
+# Python
+__pycache__/
+
+# OSX
+.DS_Store
+
+# Dear ImGui
+imgui.ini
+imgui*.ini
