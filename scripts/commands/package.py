@@ -1,5 +1,6 @@
 import zipfile
 import os
+import json
 
 import config
 from utils import platform as p
@@ -24,6 +25,9 @@ def package():
                 dst = file.get_path_to()
                 zip.write(src, dst)
                 added_files[src] = dst
+
+        zip.writestr("plugin.json", json.dumps(config.PLUGIN_JSON))
+        added_files["plugin.json"] = "plugin.json"
 
         for root, _, files in os.walk(build_dir):
             for file in files:
