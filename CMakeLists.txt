@@ -21,6 +21,9 @@ file(GLOB_RECURSE MAIN_SOURCES "src/*.cpp")
 add_library(${PROJECT_NAME} SHARED
     ${MAIN_SOURCES}
 )
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    PREFIX ""
+)
 target_include_directories(${PROJECT_NAME} PRIVATE
     include
 )

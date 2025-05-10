@@ -29,7 +29,7 @@ def package():
             for file in files:
                 src = os.path.join(root, file)
                 if src not in added_files:
-                    dst = os.path.relpath(os.path.join(root, f"{p.SYSTEM}-{p.ARCH}.{file}"), build_dir)
+                    dst = os.path.relpath(os.path.join(root, f"({p.SYSTEM}-{p.ARCH}){file}"), build_dir)
                     zip.write(src, dst)
                     added_files[src] = dst
 
