@@ -1,8 +1,9 @@
 #include <iostream>
+#include <boost/config.hpp>
 
 namespace ttp {
 
-void main() {
+BOOST_SYMBOL_EXPORT void main() {
     std::cout << "Hello from telebot template plugin!" << std::endl;
 }
 
