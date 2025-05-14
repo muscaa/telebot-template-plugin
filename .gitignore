@@ -22,3 +22,9 @@ imgui*.ini
 /sdks/*
 # Uncomment the line below to include the SDK zips
 #!/sdks/*.zip
+
+# Comment out the lines below to include cmake & vcpkg common files
+/vcpkg_triplets/
+/CMakePresets.json
+/vcpkg-configuration.json
+/vcpkg.json
