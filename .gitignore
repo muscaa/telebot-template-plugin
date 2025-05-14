@@ -17,3 +17,6 @@ __pycache__/
 # Dear ImGui
 imgui.ini
 imgui*.ini
+
+# SDK
+sdk/
