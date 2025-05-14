@@ -2,11 +2,11 @@
 .vscode/
 
 # CMake
-build/
-CMakeUserPresets.json
+/build/
+/CMakeUserPresets.json
 
 # VCPkg
-vcpkg_installed/
+/vcpkg_installed/
 
 # Python
 __pycache__/
@@ -19,4 +19,6 @@ imgui.ini
 imgui*.ini
 
 # SDK
-sdk/
+/sdks/*
+# Uncomment the line below to include the SDK zips
+#!/sdks/*.zip

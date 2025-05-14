@@ -7,30 +7,17 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
-# VCPKG packages
-find_package(SDL3 CONFIG REQUIRED)
-find_package(Stb REQUIRED)
-find_package(libzippp CONFIG REQUIRED)
-find_package(Boost REQUIRED COMPONENTS
-    system
-    dll
-    json
-)
+# SDK includes
+file(GLOB SDK_INCLUDES "sdks/*/include.cmake")
 
-# Sources
-file(GLOB_RECURSE MAIN_SOURCES "src/*.cpp")
+foreach(SDK_INCLUDE ${SDK_INCLUDES})
+    message(STATUS "Including SDK: ${SDK_INCLUDE}")
 
-add_library(${PROJECT_NAME} SHARED
-    ${MAIN_SOURCES}
-)
-set_target_properties(${PROJECT_NAME} PROPERTIES
-    PREFIX ""
-)
-target_include_directories(${PROJECT_NAME} PRIVATE
-    include
-)
+    get_filename_component(SDK_DIR "${SDK_INCLUDE}" DIRECTORY)
+    get_filename_component(SDK_NAME "${SDK_DIR}" NAME)
 
-# VCPKG links
-target_link_libraries(${PROJECT_NAME} PRIVATE
-    ${TELEBOT_API}
-)
+    include(${SDK_INCLUDE})
+endforeach()
+
+# Plugin
+add_subdirectory(plugin)
