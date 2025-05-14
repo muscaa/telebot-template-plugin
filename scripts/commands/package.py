@@ -10,8 +10,11 @@ def package():
     print(f"Packaging {project.get_package_zip_name()}...")
 
     added_files = {}
-    build_dir = f"build/{project.get_triplet()}/{project.CONFIGURATION}"
+    build_dir = f"build/{project.get_triplet()}/{project.CONFIGURATION}/plugin"
     with zipfile.ZipFile(f"build/{project.get_package_zip_name()}", "w", zipfile.ZIP_DEFLATED) as zip:
+        zip.writestr("plugin.json", json.dumps(config.PLUGIN_JSON))
+        added_files["plugin.json"] = "plugin.json"
+
         for lib in config.PACKAGE_LIBRARIES:
             if lib.is_valid():
                 src = os.path.join(build_dir, lib.get_path())
@@ -25,9 +28,6 @@ def package():
                 dst = file.get_path_to()
                 zip.write(src, dst)
                 added_files[src] = dst
-
-        zip.writestr("plugin.json", json.dumps(config.PLUGIN_JSON))
-        added_files["plugin.json"] = "plugin.json"
 
         for root, _, files in os.walk(build_dir):
             for file in files:

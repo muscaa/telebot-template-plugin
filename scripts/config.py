@@ -2,6 +2,7 @@ from utils.package import *
 from utils import platform as p
 
 NAME: str = "telebot-template-plugin"
+EXECUTABLE: Executable = Executable("telebot_sdk/telebot")
 
 PACKAGE_LIBRARIES: list[Lib] = [
 ]
