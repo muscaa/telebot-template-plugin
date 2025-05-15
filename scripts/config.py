@@ -11,9 +11,11 @@ PACKAGE_OTHER: list[File] = [
     File("NOTICE"),
 ]
 PLUGIN_JSON: dict = {
+    "id": NAME,
     "name": NAME,
     "author": "muscaa",
     "version": "1.0.0",
+    "description": "A template plugin for telebot",
     "plugin_lib": NAME,
     "plugin_main": "ttp::main"
 }
