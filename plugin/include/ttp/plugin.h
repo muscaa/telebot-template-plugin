@@ -1,7 +1,6 @@
 #pragma once
 
 #include <telebot/api.h>
-#include <telebot/utils/logging.h>
 #include <telebot/plugins.h>
 
 namespace ttp {
