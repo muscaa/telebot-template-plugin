@@ -3,11 +3,17 @@
 #include <telebot/telebot.h>
 #include <telebot/events.h>
 #include <telebot/utils/logging.h>
+#include <telebot/cli/cli.h>
 #include <imgui.h>
 
 namespace ttp {
 
 namespace log = telebot::utils::logging;
+
+int main_cli(const telebot::plugins::Plugin& plugin) {
+    log::info("Plugin {} main CLI called with {} args", plugin.getId(), telebot::cli::args.size());
+    return 0;
+}
 
 static bool show_demo_window = true;
 static bool show_another_window = false;

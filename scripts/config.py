@@ -17,5 +17,6 @@ PLUGIN_JSON: dict = {
     "version": "1.0.0",
     "description": "A template plugin for telebot",
     "plugin_lib": NAME,
-    "plugin_main": "ttp::main"
+    "plugin_main": "ttp::main",
+    "plugin_main_cli": "ttp::main_cli",
 }
